@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+
+android {
+    aaptOptions {
+        noCompress 'txt', 'csv'
+    }
+
+    compileSdkVersion 28
+
+    defaultConfig {
+        applicationId "fr.unice.reneviergonin.demomulti"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        androidTest {
+            main.res.srcDirs = ['src/main/res', 'src/androidTest/res']
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Required -- JUnit 4 framework
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'junit:junit:4.12'
+
+
+    // 2019 androidx
+    testImplementation 'androidx.test:core:1.0.0'
+
+    // deprecated : androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    // Set this dependency to use JUnit 4 rules
+    androidTestImplementation 'androidx.test:rules:1.1.0'
+    // Set this dependency to build and run Espresso tests
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    // Set this dependency to build and run UI Automator tests
+    androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
+    androidTestImplementation 'com.android.support:support-annotations:28+'
+
+}
