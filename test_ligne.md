@@ -1,3 +1,5 @@
+Quand vous clonerez cet exemple, il faudra probablement refaire le wrapper de graddle (vous aurez le message dans android studio).
+
 Cet exemple est riche : 
  + onOptionsItemSelected de l'activité montre comment écrire dans un fichier (public)
  + MyView montre comment étendre une View pour en faire une personnalisée, avec enregistrement des évènements
